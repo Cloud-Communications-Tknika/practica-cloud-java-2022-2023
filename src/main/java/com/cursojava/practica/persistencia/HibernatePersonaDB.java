@@ -26,7 +26,7 @@ public class HibernatePersonaDB implements IPersonaGBD{
     }
 
     @Override
-    public void addPersona(Persona persona) {
+    public bool addPersona(Persona persona) {
 
         Persona per = (Persona) session.get(Persona.class, persona.getId());
 
@@ -35,32 +35,46 @@ public class HibernatePersonaDB implements IPersonaGBD{
             session.beginTransaction();  
             session.save(persona);
             session.getTransaction().commit();
+            return true;
         }
+
+        return false;
         
     }
 
     @Override
-    public void updatePersona(Persona persona) {
+    public bool updatePersona(Persona persona) {
         
-        session.beginTransaction();
-        session.update(persona);
-        session.getTransaction().commit();
+        Persona per = (Persona) session.get(Persona.class, persona.getId());
+
+        if (per!=null)
+        {
+            session.beginTransaction();
+            session.update(persona);
+            session.getTransaction().commit();
+            return true;
+        }
+
+        return false;
+
        
     }
 
     @Override
-    public void removePersona(String id) {
+    public bool removePersona(String id) {
         
         Persona p = (Persona) session.get(Persona.class, id);
 
         if(p!=null)
         {
             session.beginTransaction();
-
-            session.remove(p);
-            
+            session.remove(p);           
             session.getTransaction().commit();
+
+            return true;
         }
+
+        return false;
         
     }
     

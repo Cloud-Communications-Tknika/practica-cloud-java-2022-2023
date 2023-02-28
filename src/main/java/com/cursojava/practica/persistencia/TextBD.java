@@ -47,14 +47,17 @@ public class TextBD implements IPersonaGBD{
     }
 
     @Override
-    public void addPersona(Persona persona) {
+    public bool addPersona(Persona persona) {
         
         String id = persona.getId();
 
         if(!datos.containsKey(id))
         {
             datos.put(id, persona);
+            return true;
         }
+
+        return false;
         
     }
 
@@ -149,17 +152,26 @@ public class TextBD implements IPersonaGBD{
     }
 
     @Override
-    public void updatePersona(Persona persona) {
+    public bool updatePersona(Persona persona) {
         
         String id = persona.getId();
 
-        datos.put(id, persona);
+        if(datos.containsKey(id))
+        {
+            datos.put(id, persona);
+            return true;
+        }
+
+        return false;
+ 
    
     }
 
     @Override
-    public void removePersona(String id) {
+    public bool removePersona(String id) {
         // TODO Auto-generated method stub
+
+        return true;
         
     }
 
