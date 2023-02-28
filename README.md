@@ -29,3 +29,37 @@ Generar la documentación:
 Tras hacer mvn package para ejecutar la aplicación debemos ejecutar.
 
     java -jar ./targe/*.jar
+
+Para utilizar una BBDD, primero debemos añadir la dependencia del conector mysql al pom.xml y luego modificar el fichero PersistenceBeanConfiguration.java
+
+DE:
+
+    @Bean
+    IPersonaGBD getIPersonaGDB() throws InvalidAttributeValueException, NumberFormatException, IOException
+    {
+      File f = new File("datos.txt");
+      
+      return new TextBD(f);
+    }
+
+
+A:
+
+    @Bean
+    IPersonaGBD getIPersonaGDB() throws InvalidAttributeValueException, NumberFormatException, IOException
+    {
+        Session session = getSession();
+
+        return new HibernatePersonaDB(session);
+
+    }
+    
+
+Opciones de la aplicación java.
+
+    -Ddbhost: Dirección del host de la BBDD, default: 127.0.0.1
+    -Ddbport: Puerto de la BBDD, default: 3306
+    -Ddbuser: Ususario de la BBDD, default: root
+    -Ddbpassword: Contraseña de la BBDD, default: root
+    -Ddbdatabase: nombre de la base de datos, default: database1
+    -Dport: Puerto en el que se ejecuta la aplicación, default: 8080
