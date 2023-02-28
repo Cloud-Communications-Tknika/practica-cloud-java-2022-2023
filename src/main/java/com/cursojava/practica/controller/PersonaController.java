@@ -9,6 +9,7 @@ import com.cursojava.practica.application.*;
 import com.cursojava.practica.dominio.Persona;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +32,7 @@ public class PersonaController {
         return repository.getPersona(id);
     }
 
-    @GetMapping("/add")
+    @PostMapping("/add")
     public void addPersona(@RequestBody Persona p)
     {
         repository.addPersona(p);
