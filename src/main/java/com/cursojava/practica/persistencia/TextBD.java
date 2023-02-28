@@ -47,7 +47,7 @@ public class TextBD implements IPersonaGBD{
     }
 
     @Override
-    public bool addPersona(Persona persona) {
+    public boolean addPersona(Persona persona) {
         
         String id = persona.getId();
 
@@ -152,7 +152,7 @@ public class TextBD implements IPersonaGBD{
     }
 
     @Override
-    public bool updatePersona(Persona persona) {
+    public boolean updatePersona(Persona persona) {
         
         String id = persona.getId();
 
@@ -168,7 +168,7 @@ public class TextBD implements IPersonaGBD{
     }
 
     @Override
-    public bool removePersona(String id) {
+    public boolean removePersona(String id) {
         // TODO Auto-generated method stub
 
         return true;

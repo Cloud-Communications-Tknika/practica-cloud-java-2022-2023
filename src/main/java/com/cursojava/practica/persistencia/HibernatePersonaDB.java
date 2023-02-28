@@ -26,7 +26,7 @@ public class HibernatePersonaDB implements IPersonaGBD{
     }
 
     @Override
-    public bool addPersona(Persona persona) {
+    public boolean addPersona(Persona persona) {
 
         Persona per = (Persona) session.get(Persona.class, persona.getId());
 
@@ -43,7 +43,7 @@ public class HibernatePersonaDB implements IPersonaGBD{
     }
 
     @Override
-    public bool updatePersona(Persona persona) {
+    public boolean updatePersona(Persona persona) {
         
         Persona per = (Persona) session.get(Persona.class, persona.getId());
 
@@ -61,7 +61,7 @@ public class HibernatePersonaDB implements IPersonaGBD{
     }
 
     @Override
-    public bool removePersona(String id) {
+    public boolean removePersona(String id) {
         
         Persona p = (Persona) session.get(Persona.class, id);
 
