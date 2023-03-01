@@ -17,7 +17,6 @@ public class Persona {
     private boolean alive;
 
 
-    
     public Persona(String id, String name, int age)
     {
         this.id=id;
@@ -34,12 +33,14 @@ public class Persona {
         this.alive=alive;
     }
 
+    /**
+     * Si el usuario esta vivo suma 1 a su edad.
+     */
     public void hBirthday()
     {
-        if(alive)
-        {
-            age++;
-        }
+
+        age++;
+
     }
 
     public String getId() {
