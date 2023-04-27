@@ -21,7 +21,12 @@
 			"extensions": [
 				"vscjava.vscode-java-pack",
 				"vmware.vscode-boot-dev-pack",
-				"ritwickdey.LiveServer"
+				"ritwickdey.LiveServer",
+				"cweijan.vscode-office",
+				"ms-azuretools.vscode-docker",
+				"GitHub.vscode-github-actions",
+				"donjayamanne.githistory",
+				"vscjava.vscode-lombok"
 			]
 		}
 	}
